@@ -60,7 +60,9 @@
 <script>
   window.addEventListener('keydown', function(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    console.log(audio);
+    if (!audio) return; //Stop the function from running if not a-l keys
+    audio.currentTime = 0; //Have the sample "rewind" so it can be played at time
+    audio.play();
   });
 
 </script>
